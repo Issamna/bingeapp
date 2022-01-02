@@ -10,7 +10,7 @@ class UserManager(BaseUserManager):
 
     def _create_user(self, email, password, **extra_fields):
         """
-        Creates and saves a User with the given email and password.
+        Creates and saves a User with the given emails and password.
         """
         if not email:
             raise ValueError("The given email must be set")
@@ -76,4 +76,3 @@ class User(AbstractUser):
         """
         full_name = "%s %s" % (self.first_name, self.last_name)
         return full_name.strip()
-    
