@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "rest_framework",
     "rest_framework.authtoken",
+    "api",
     "dj_rest_auth",
     'bingeauth',
 ]
@@ -139,11 +140,14 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAuthenticated",
     ],
+    'TEST_REQUEST_DEFAULT_FORMAT': 'json',
 }
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost",
     "http://localhost:3000",
+    "http://penguin.linux.test:3000",
+    "http://127.0.0.1:3000"
 ]
 CORS_ALLOW_CREDENTIALS = True
 
