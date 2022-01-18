@@ -14,7 +14,7 @@ class TestTvShowSerializer(TestCase):
     """Test module for TvShow Serializer/View"""
 
     def setUp(self):
-        #Test data
+        # Test data
         self.show = TvShow.objects.create(show_title="TestShow")
         TvShow.objects.create(show_title="TestShow2")
         self.owner = User.objects.create(
@@ -39,17 +39,15 @@ class TestTvShowSerializer(TestCase):
         self.assertEqual(response.status_code, 404)
 
     def test_other_calls(self):
-        """"Test to make sure only list and retrieve work"""
+        """ "Test to make sure only list and retrieve work"""
         payload = {
-            "show_title": 'New_Title',
+            "show_title": "New_Title",
         }
         response_create = client.post(reverse("tvshows-list"), payload)
         response_update = client.put(
             reverse("tvshows-detail", args=[self.show.pk]), payload
         )
-        response_delete = client.delete(
-            reverse("tvshows-detail", args=[self.show.pk])
-        )
+        response_delete = client.delete(reverse("tvshows-detail", args=[self.show.pk]))
         self.assertEqual(response_create.status_code, 405)
         self.assertEqual(response_update.status_code, 405)
         self.assertEqual(response_delete.status_code, 405)
@@ -59,18 +57,18 @@ class TestUserTvShowSerializer(TestCase):
     """Test module for UserTvShow Serializer/View"""
 
     def setUp(self):
-        #Test data
+        # Test data
         self.show1 = TvShow.objects.create(show_title="TestShow1")
         self.show2 = TvShow.objects.create(show_title="TestShow2")
         self.show3 = TvShow.objects.create(show_title="TestShow3")
         self.owner = User.objects.create(email="test@test.com")
-                self.user_tvshow1 = UserTvShow.objects.create(
+        self.user_tvshow1 = UserTvShow.objects.create(
             userprofile=self.owner.userprofile, show=self.show1
         )
         self.wz = UserTvShow.objects.create(
             userprofile=self.owner.userprofile, show=self.show2
         )
-        #Different user to test list/retrieve only user data
+        # Different user to test list/retrieve only user data
         self.diff_user = User.objects.create(email="diff_user@test.com")
         UserTvShow.objects.create(
             userprofile=self.diff_user.userprofile, show=self.show2
@@ -90,7 +88,7 @@ class TestUserTvShowSerializer(TestCase):
         self.assertEqual(response_data["show"], 1)
 
     def test_retrieve_bad_data(self):
-        #to test if it does not exist
+        # to test if it does not exist
         response = client.get(reverse("utvshows-detail", args=[10]))
         self.assertEqual(response.status_code, 404)
 
@@ -103,16 +101,17 @@ class TestUserTvShowSerializer(TestCase):
                 userprofile=self.owner.userprofile, show=self.show3
             ).exists()
         )
-    
+
     def test_create_duplicate(self):
-        #test unique together on model
+        # test unique together on model
         payload = {"userprofile": self.owner.userprofile.pk, "show": self.show1.pk}
         response = client.post(reverse("utvshows-list"), payload)
         self.assertEqual(response.status_code, 400)
         self.assertEqual(
             UserTvShow.objects.filter(
                 userprofile=self.owner.userprofile, show=self.show1
-            ).count(), 1
+            ).count(),
+            1,
         )
 
     def test_update(self):
@@ -144,7 +143,7 @@ class TestViewHistorySerializer(TestCase):
     """Test module for UserTvShow Serializer/View"""
 
     def setUp(self):
-        #Test data
+        # Test data
         self.show1 = TvShow.objects.create(show_title="TestShow1")
         self.show2 = TvShow.objects.create(show_title="TestShow2")
         self.owner = User.objects.create(email="test@test.com")
@@ -160,7 +159,7 @@ class TestViewHistorySerializer(TestCase):
             user_tvshow=self.user_tvshow,
             start_date=make_aware(datetime.now() + timedelta(hours=11)),
         )
-        #Different user to test list/retrieve only user data
+        # Different user to test list/retrieve only user data
         self.diff_user = User.objects.create(email="diff_user@test.com")
         self.diff_user_tvshow = UserTvShow.objects.create(
             userprofile=self.diff_user.userprofile, show=self.show1
@@ -184,7 +183,7 @@ class TestViewHistorySerializer(TestCase):
         self.assertEqual(response_data["user_tvshow"], self.viewhistory1.user_tvshow.pk)
 
     def test_retrieve_bad_data(self):
-        #to test if it does not exist
+        # to test if it does not exist
         response = client.get(reverse("viewhistory-detail", args=[10]))
         self.assertEqual(response.status_code, 404)
 

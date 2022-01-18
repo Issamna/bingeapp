@@ -21,7 +21,7 @@ class TestUserTvShowModel(TestCase):
     "Test module for UserTvShow model"
 
     def setUp(self):
-        #Test data
+        # Test data
         self.email = "test@test.com"
         self.show_title = "TestShow"
         self.user = User.objects.create(
@@ -49,7 +49,7 @@ class TestViewHistoryModel(TestCase):
     "Test module for ViewHistory Model"
 
     def setUp(self):
-        #Test data
+        # Test data
         self.email = "test@test.com"
         self.show_title = "TestShow"
         self.user = User.objects.create(

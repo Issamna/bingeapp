@@ -29,7 +29,7 @@ class UserTvShowViewSet(viewsets.ModelViewSet):
     model = UserTvShow
     serializer_class = UserTvShowSerializer
 
-    #only return users data
+    # only return users data
     def get_queryset(self):
         user = self.request.user
         return UserTvShow.objects.filter(userprofile=user.userprofile)
@@ -43,7 +43,7 @@ class ViewHistoryViewSet(viewsets.ModelViewSet):
     model = ViewHistory
     serializer_class = ViewHistorySerializer
 
-    #only return users data
+    # only return users data
     def get_queryset(self):
         user = self.request.user
         return ViewHistory.objects.filter(user_tvshow__userprofile=user.userprofile)

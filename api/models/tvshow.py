@@ -28,7 +28,7 @@ class UserTvShow(models.Model):
     show = models.ForeignKey(
         TvShow, related_name="show_users", on_delete=models.CASCADE, null=False
     )
-    
+
     last_watched = models.DateTimeField(
         null=True,
         blank=True,

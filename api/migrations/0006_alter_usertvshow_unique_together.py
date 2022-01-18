@@ -6,13 +6,13 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('bingeauth', '0001_initial'),
-        ('api', '0005_rename_user_profile_usertvshow_userprofile'),
+        ("bingeauth", "0001_initial"),
+        ("api", "0005_rename_user_profile_usertvshow_userprofile"),
     ]
 
     operations = [
         migrations.AlterUniqueTogether(
-            name='usertvshow',
-            unique_together={('userprofile', 'show')},
+            name="usertvshow",
+            unique_together={("userprofile", "show")},
         ),
     ]
