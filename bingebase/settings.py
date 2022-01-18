@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "django_extensions",
     "corsheaders",
     "rest_framework",
     "rest_framework.authtoken",
@@ -140,7 +141,6 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAuthenticated",
     ],
-    'TEST_REQUEST_DEFAULT_FORMAT': 'json',
 }
 
 CORS_ALLOWED_ORIGINS = [

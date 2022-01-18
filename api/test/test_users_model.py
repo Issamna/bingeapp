@@ -2,6 +2,7 @@ from django.test import TestCase
 from bingeauth.models.user import User
 from bingeauth.models.userprofile import UserProfile
 
+
 class TestUserModels(TestCase):
     def setUp(self):
         self.email = "test@test.com"

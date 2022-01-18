@@ -9,25 +9,55 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('bingeauth', '0001_initial'),
+        ("bingeauth", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='TvShow',
+            name="TvShow",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('show_title', models.CharField(max_length=255)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("show_title", models.CharField(max_length=255)),
             ],
         ),
         migrations.CreateModel(
-            name='UserTvShow',
+            name="UserTvShow",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('last_watched', models.DateTimeField()),
-                ('times_watched', models.IntegerField(default=0)),
-                ('show', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='show_users', to='api.tvshow')),
-                ('user_profile', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='user_shows', to='bingeauth.userprofile')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("last_watched", models.DateTimeField()),
+                ("times_watched", models.IntegerField(default=0)),
+                (
+                    "show",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="show_users",
+                        to="api.tvshow",
+                    ),
+                ),
+                (
+                    "user_profile",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="user_shows",
+                        to="bingeauth.userprofile",
+                    ),
+                ),
             ],
         ),
     ]
