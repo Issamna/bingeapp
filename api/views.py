@@ -1,7 +1,9 @@
-from rest_framework.decorators import api_view
+import json
+from django.http import JsonResponse
+from rest_framework.decorators import action, api_view
+from rest_framework.exceptions import APIException
 from rest_framework.response import Response
-from rest_framework import serializers, status
-from rest_framework import viewsets
+from rest_framework import serializers, status, viewsets
 
 from api.models.tvshow import TvShow, UserTvShow, ViewHistory
 from bingeauth.models.user import User
@@ -29,10 +31,38 @@ class UserTvShowViewSet(viewsets.ModelViewSet):
     model = UserTvShow
     serializer_class = UserTvShowSerializer
 
+    def create(self, request):
+        # update show details
+        tvshow_id = request.data.get("show")
+        try:
+            tvshow = TvShow.objects.get(pk=tvshow_id)
+            tvshow.get_show_detail()
+        except TvShow.DoesNotExist:
+            # TODO: Log error
+            print("error TvShow.DoesNotExist")
+        except:
+            raise APIException(
+                "A server error occurred. Failed to retrieve show details"
+            )
+
+        return super().create(request)
+
     # only return users data
     def get_queryset(self):
         user = self.request.user
         return UserTvShow.objects.filter(userprofile=user.userprofile)
+
+    @action(detail=True, methods=["GET"], name="allviewhistory")
+    def all_view_history(self, request, pk=None):
+        # returns user tvshow view history
+        user = request.user
+        view_histories = UserTvShow.objects.get(
+            userprofile=user.userprofile,
+            pk=pk,
+        ).view_histories.all()
+        serializer = ViewHistorySerializer(view_histories, many=True)
+
+        return Response(serializer.data)
 
 
 class ViewHistoryViewSet(viewsets.ModelViewSet):
@@ -43,7 +73,9 @@ class ViewHistoryViewSet(viewsets.ModelViewSet):
     model = ViewHistory
     serializer_class = ViewHistorySerializer
 
-    # only return users data
+    # only return users data and only for usertvshow
     def get_queryset(self):
         user = self.request.user
-        return ViewHistory.objects.filter(user_tvshow__userprofile=user.userprofile)
+        return ViewHistory.objects.filter(
+            user_tvshow__userprofile=user.userprofile,
+        )
