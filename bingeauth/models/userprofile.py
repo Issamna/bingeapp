@@ -5,7 +5,9 @@ from django.dispatch import receiver
 
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User,
+        on_delete=models.CASCADE
+    )
     username = models.CharField(unique=True, max_length=100)
 
 

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,6 +25,7 @@ SECRET_KEY = 'django-insecure-yj0#5h(yl1&euvrnpjr=69b$#w&!_^rhf3vy11(nie@=dy$ua1
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+API_KEY = config('TMDB_API_KEY', cast=str)
 
 ALLOWED_HOSTS = []
 
@@ -37,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
     "corsheaders",
     "rest_framework",
     "rest_framework.authtoken",
@@ -140,7 +143,6 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAuthenticated",
     ],
-    'TEST_REQUEST_DEFAULT_FORMAT': 'json',
 }
 
 CORS_ALLOWED_ORIGINS = [

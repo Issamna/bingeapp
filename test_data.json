@@ -1,0 +1,1308 @@
+[
+  {
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": 1,
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": 1,
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": 1,
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+      "name": "Can view log entry",
+      "content_type": 1,
+      "codename": "view_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+      "name": "Can add permission",
+      "content_type": 2,
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+      "name": "Can change permission",
+      "content_type": 2,
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": 2,
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+      "name": "Can view permission",
+      "content_type": 2,
+      "codename": "view_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+      "name": "Can add group",
+      "content_type": 3,
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+      "name": "Can change group",
+      "content_type": 3,
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+      "name": "Can delete group",
+      "content_type": 3,
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+      "name": "Can view group",
+      "content_type": 3,
+      "codename": "view_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+      "name": "Can add content type",
+      "content_type": 4,
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+      "name": "Can change content type",
+      "content_type": 4,
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": 4,
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+      "name": "Can view content type",
+      "content_type": 4,
+      "codename": "view_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+      "name": "Can add session",
+      "content_type": 5,
+      "codename": "add_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+      "name": "Can change session",
+      "content_type": 5,
+      "codename": "change_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+      "name": "Can delete session",
+      "content_type": 5,
+      "codename": "delete_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+      "name": "Can view session",
+      "content_type": 5,
+      "codename": "view_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+      "name": "Can add Token",
+      "content_type": 6,
+      "codename": "add_token"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+      "name": "Can change Token",
+      "content_type": 6,
+      "codename": "change_token"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+      "name": "Can delete Token",
+      "content_type": 6,
+      "codename": "delete_token"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+      "name": "Can view Token",
+      "content_type": 6,
+      "codename": "view_token"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+      "name": "Can add token",
+      "content_type": 7,
+      "codename": "add_tokenproxy"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+      "name": "Can change token",
+      "content_type": 7,
+      "codename": "change_tokenproxy"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+      "name": "Can delete token",
+      "content_type": 7,
+      "codename": "delete_tokenproxy"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+      "name": "Can view token",
+      "content_type": 7,
+      "codename": "view_tokenproxy"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+      "name": "Can add user",
+      "content_type": 8,
+      "codename": "add_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+      "name": "Can change user",
+      "content_type": 8,
+      "codename": "change_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+      "name": "Can delete user",
+      "content_type": 8,
+      "codename": "delete_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+      "name": "Can view user",
+      "content_type": 8,
+      "codename": "view_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+      "name": "Can add user profile",
+      "content_type": 9,
+      "codename": "add_userprofile"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+      "name": "Can change user profile",
+      "content_type": 9,
+      "codename": "change_userprofile"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+      "name": "Can delete user profile",
+      "content_type": 9,
+      "codename": "delete_userprofile"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+      "name": "Can view user profile",
+      "content_type": 9,
+      "codename": "view_userprofile"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+      "name": "Can add user tv show",
+      "content_type": 10,
+      "codename": "add_usertvshow"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+      "name": "Can change user tv show",
+      "content_type": 10,
+      "codename": "change_usertvshow"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+      "name": "Can delete user tv show",
+      "content_type": 10,
+      "codename": "delete_usertvshow"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+      "name": "Can view user tv show",
+      "content_type": 10,
+      "codename": "view_usertvshow"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+      "name": "Can add tv show",
+      "content_type": 11,
+      "codename": "add_tvshow"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+      "name": "Can change tv show",
+      "content_type": 11,
+      "codename": "change_tvshow"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+      "name": "Can delete tv show",
+      "content_type": 11,
+      "codename": "delete_tvshow"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+      "name": "Can view tv show",
+      "content_type": 11,
+      "codename": "view_tvshow"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+      "name": "Can add view history",
+      "content_type": 12,
+      "codename": "add_viewhistory"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+      "name": "Can change view history",
+      "content_type": 12,
+      "codename": "change_viewhistory"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+      "name": "Can delete view history",
+      "content_type": 12,
+      "codename": "delete_viewhistory"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+      "name": "Can view view history",
+      "content_type": 12,
+      "codename": "view_viewhistory"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 49,
+    "fields": {
+      "name": "Can add genre",
+      "content_type": 13,
+      "codename": "add_genre"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 50,
+    "fields": {
+      "name": "Can change genre",
+      "content_type": 13,
+      "codename": "change_genre"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 51,
+    "fields": {
+      "name": "Can delete genre",
+      "content_type": 13,
+      "codename": "delete_genre"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 52,
+    "fields": {
+      "name": "Can view genre",
+      "content_type": 13,
+      "codename": "view_genre"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+      "app_label": "auth",
+      "model": "permission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+      "app_label": "auth",
+      "model": "group"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+      "app_label": "sessions",
+      "model": "session"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+      "app_label": "authtoken",
+      "model": "token"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+      "app_label": "authtoken",
+      "model": "tokenproxy"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+      "app_label": "bingeauth",
+      "model": "user"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+      "app_label": "bingeauth",
+      "model": "userprofile"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+      "app_label": "api",
+      "model": "usertvshow"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+      "app_label": "api",
+      "model": "tvshow"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": {
+      "app_label": "api",
+      "model": "viewhistory"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 13,
+    "fields": {
+      "app_label": "api",
+      "model": "genre"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "999u5t3frxml38z2e3ghfhf6d4n8mueo",
+    "fields": {
+      "session_data": ".eJxVjEEOwiAQRe_C2hChUAaX7nsGAjODVA0kpV0Z765NutDtf-_9lwhxW0vYOi9hJnERWpx-txTxwXUHdI_11iS2ui5zkrsiD9rl1Iif18P9Oyixl29tLGseBoMelNeE7J01KZNOHkYAYD-6nK1BZfAclXJkMiNxtsQKkMX7A-CHOIo:1n7fyd:0wazj5xYO9mTwZL97sfod_qJX6cxZto0QzUSzqkMX5c",
+      "expire_date": "2022-01-26T15:55:55.661Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "mzy0rivbx4kwpo8c2krwflxk9jjm8hbb",
+    "fields": {
+      "session_data": ".eJxVjEEOwiAQRe_C2hChUAaX7nsGAjODVA0kpV0Z765NutDtf-_9lwhxW0vYOi9hJnERWpx-txTxwXUHdI_11iS2ui5zkrsiD9rl1Iif18P9Oyixl29tLGseBoMelNeE7J01KZNOHkYAYD-6nK1BZfAclXJkMiNxtsQKkMX7A-CHOIo:1n7gBn:ZKo894N44vMYI8yarAPk1bGpqVupB0n_FzMTLMjE4jo",
+      "expire_date": "2022-01-26T16:09:31.462Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "v7q4frzohgmpgk52bssnz4h0gsw8s83f",
+    "fields": {
+      "session_data": ".eJxVjMsOwiAQRf-FtSFAh0dduvcbyNAZpGogKe3K-O_apAvd3nPOfYmI21ri1nmJM4mz0OL0uyWcHlx3QHestyanVtdlTnJX5EG7vDbi5-Vw_w4K9vKtIQyOlQHiACoYYNRuUD7bBD75rGAMQEiosoZMxo3eWLDZYyDjeXLi_QHBlDdP:1n4oxa:T98TtbQKOvDr3DtsW1Uq4Hhdir9jffEuIS2j1KDok64",
+      "expire_date": "2022-01-18T18:55:02.174Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "ypq72iifoqm5ubpso1e9zjx9fh4doi5r",
+    "fields": {
+      "session_data": ".eJxVjEEOwiAQRe_C2hChUAaX7nsGAjODVA0kpV0Z765NutDtf-_9lwhxW0vYOi9hJnERWpx-txTxwXUHdI_11iS2ui5zkrsiD9rl1Iif18P9Oyixl29tLGseBoMelNeE7J01KZNOHkYAYD-6nK1BZfAclXJkMiNxtsQKkMX7A-CHOIo:1n7fye:fX3S0NOMJomz4MR8pY_C3qH1IVLeYrvnv1yy-biO4z4",
+      "expire_date": "2022-01-26T15:55:56.658Z"
+    }
+  },
+  {
+    "model": "authtoken.token",
+    "pk": "2413366674959e607d4f81745b03bc46733be52c",
+    "fields": {
+      "user": 2,
+      "created": "2022-01-12T15:55:55.379Z"
+    }
+  },
+  {
+    "model": "authtoken.token",
+    "pk": "4f17336afe89d2f639141e24d45629341a5a9e22",
+    "fields": {
+      "user": 1,
+      "created": "2022-01-04T18:55:01.927Z"
+    }
+  },
+  {
+    "model": "api.genre",
+    "pk": 1,
+    "fields": {
+      "api_id": "1",
+      "name": "Testery"
+    }
+  },
+  {
+    "model": "api.genre",
+    "pk": 2,
+    "fields": {
+      "api_id": "10759",
+      "name": "Action & Adventure"
+    }
+  },
+  {
+    "model": "api.genre",
+    "pk": 3,
+    "fields": {
+      "api_id": "16",
+      "name": "Animation"
+    }
+  },
+  {
+    "model": "api.genre",
+    "pk": 4,
+    "fields": {
+      "api_id": "35",
+      "name": "Comedy"
+    }
+  },
+  {
+    "model": "api.genre",
+    "pk": 5,
+    "fields": {
+      "api_id": "10762",
+      "name": "Kids"
+    }
+  },
+  {
+    "model": "api.genre",
+    "pk": 6,
+    "fields": {
+      "api_id": "10763",
+      "name": "News"
+    }
+  },
+  {
+    "model": "api.genre",
+    "pk": 7,
+    "fields": {
+      "api_id": "10764",
+      "name": "Reality"
+    }
+  },
+  {
+    "model": "api.genre",
+    "pk": 8,
+    "fields": {
+      "api_id": "10765",
+      "name": "Sci-Fi & Fantasy"
+    }
+  },
+  {
+    "model": "api.genre",
+    "pk": 9,
+    "fields": {
+      "api_id": "10766",
+      "name": "Soap"
+    }
+  },
+  {
+    "model": "api.genre",
+    "pk": 10,
+    "fields": {
+      "api_id": "10767",
+      "name": "Talk"
+    }
+  },
+  {
+    "model": "api.genre",
+    "pk": 11,
+    "fields": {
+      "api_id": "10768",
+      "name": "War & Politics"
+    }
+  },
+  {
+    "model": "api.genre",
+    "pk": 12,
+    "fields": {
+      "api_id": "28",
+      "name": "Action"
+    }
+  },
+  {
+    "model": "api.genre",
+    "pk": 13,
+    "fields": {
+      "api_id": "12",
+      "name": "Adventure"
+    }
+  },
+  {
+    "model": "api.genre",
+    "pk": 14,
+    "fields": {
+      "api_id": "80",
+      "name": "Crime"
+    }
+  },
+  {
+    "model": "api.genre",
+    "pk": 15,
+    "fields": {
+      "api_id": "99",
+      "name": "Documentary"
+    }
+  },
+  {
+    "model": "api.genre",
+    "pk": 16,
+    "fields": {
+      "api_id": "18",
+      "name": "Drama"
+    }
+  },
+  {
+    "model": "api.genre",
+    "pk": 17,
+    "fields": {
+      "api_id": "10751",
+      "name": "Family"
+    }
+  },
+  {
+    "model": "api.genre",
+    "pk": 18,
+    "fields": {
+      "api_id": "14",
+      "name": "Fantasy"
+    }
+  },
+  {
+    "model": "api.genre",
+    "pk": 19,
+    "fields": {
+      "api_id": "36",
+      "name": "History"
+    }
+  },
+  {
+    "model": "api.genre",
+    "pk": 20,
+    "fields": {
+      "api_id": "27",
+      "name": "Horror"
+    }
+  },
+  {
+    "model": "api.genre",
+    "pk": 21,
+    "fields": {
+      "api_id": "10402",
+      "name": "Music"
+    }
+  },
+  {
+    "model": "api.genre",
+    "pk": 22,
+    "fields": {
+      "api_id": "9648",
+      "name": "Mystery"
+    }
+  },
+  {
+    "model": "api.genre",
+    "pk": 23,
+    "fields": {
+      "api_id": "10749",
+      "name": "Romance"
+    }
+  },
+  {
+    "model": "api.genre",
+    "pk": 24,
+    "fields": {
+      "api_id": "878",
+      "name": "Science Fiction"
+    }
+  },
+  {
+    "model": "api.genre",
+    "pk": 25,
+    "fields": {
+      "api_id": "10770",
+      "name": "TV Movie"
+    }
+  },
+  {
+    "model": "api.genre",
+    "pk": 26,
+    "fields": {
+      "api_id": "53",
+      "name": "Thriller"
+    }
+  },
+  {
+    "model": "api.genre",
+    "pk": 27,
+    "fields": {
+      "api_id": "10752",
+      "name": "War"
+    }
+  },
+  {
+    "model": "api.genre",
+    "pk": 28,
+    "fields": {
+      "api_id": "37",
+      "name": "Western"
+    }
+  },
+  {
+    "model": "api.tvshow",
+    "pk": 122,
+    "fields": {
+      "show_title": "Peacemaker",
+      "api_id": "110492",
+      "is_detailed": false,
+      "first_air_date": "2022-01-13",
+      "vote_average": "8.70",
+      "vote_count": 1025,
+      "overview": "The continuing story of Peacemaker – a compellingly vainglorious man who believes in peace at any cost, no matter how many people he has to kill to get it – in the aftermath of the events of “The Suicide Squad.”",
+      "poster_path": "/hE3LRZAY84fG19a18pzpkZERjTE.jpg",
+      "in_production": null,
+      "number_of_episodes": null,
+      "number_of_seasons": null,
+      "genres": []
+    }
+  },
+  {
+    "model": "api.tvshow",
+    "pk": 123,
+    "fields": {
+      "show_title": "Euphoria",
+      "api_id": "85552",
+      "is_detailed": false,
+      "first_air_date": "2019-06-16",
+      "vote_average": "8.40",
+      "vote_count": 6768,
+      "overview": "A group of high school students navigate love and friendships in a world of drugs, sex, trauma, and social media.",
+      "poster_path": "/jtnfNzqZwN4E32FGGxx1YZaBWWf.jpg",
+      "in_production": null,
+      "number_of_episodes": null,
+      "number_of_seasons": null,
+      "genres": []
+    }
+  },
+  {
+    "model": "api.tvshow",
+    "pk": 124,
+    "fields": {
+      "show_title": "Pasión de gavilanes",
+      "api_id": "11250",
+      "is_detailed": false,
+      "first_air_date": "2003-10-21",
+      "vote_average": "7.70",
+      "vote_count": 1683,
+      "overview": "The Reyes-Elizondo's idyllic lives are shattered by a murder charge against Eric and León.",
+      "poster_path": "/lWlsZIsrGVWHtBeoOeLxIKDd9uy.jpg",
+      "in_production": null,
+      "number_of_episodes": null,
+      "number_of_seasons": null,
+      "genres": []
+    }
+  },
+  {
+    "model": "api.tvshow",
+    "pk": 125,
+    "fields": {
+      "show_title": "All of Us Are Dead",
+      "api_id": "99966",
+      "is_detailed": false,
+      "first_air_date": "2022-01-28",
+      "vote_average": "8.70",
+      "vote_count": 1324,
+      "overview": "A high school becomes ground zero for a zombie virus outbreak. Trapped students must fight their way out — or turn into one of the rabid infected.",
+      "poster_path": "/z4IP8ZiKctB5U9brfKHYujYBUTD.jpg",
+      "in_production": null,
+      "number_of_episodes": null,
+      "number_of_seasons": null,
+      "genres": []
+    }
+  },
+  {
+    "model": "api.tvshow",
+    "pk": 126,
+    "fields": {
+      "show_title": "The Book of Boba Fett",
+      "api_id": "115036",
+      "is_detailed": false,
+      "first_air_date": "2021-12-29",
+      "vote_average": "8.30",
+      "vote_count": 1054,
+      "overview": "Legendary bounty hunter Boba Fett and mercenary Fennec Shand must navigate the galaxy’s underworld when they return to the sands of Tatooine to stake their claim on the territory once ruled by Jabba the Hutt and his crime syndicate.",
+      "poster_path": "/gNbdjDi1HamTCrfvM9JeA94bNi2.jpg",
+      "in_production": null,
+      "number_of_episodes": null,
+      "number_of_seasons": null,
+      "genres": []
+    }
+  },
+  {
+    "model": "api.tvshow",
+    "pk": 127,
+    "fields": {
+      "show_title": "The Walking Dead",
+      "api_id": "1402",
+      "is_detailed": false,
+      "first_air_date": "2010-10-31",
+      "vote_average": "8.10",
+      "vote_count": 12525,
+      "overview": "Sheriff's deputy Rick Grimes awakens from a coma to find a post-apocalyptic world dominated by flesh-eating zombies. He sets out to find his family and encounters many other survivors along the way.",
+      "poster_path": "/xf9wuDcqlUPWABZNeDKPbZUjWx0.jpg",
+      "in_production": null,
+      "number_of_episodes": null,
+      "number_of_seasons": null,
+      "genres": []
+    }
+  },
+  {
+    "model": "api.tvshow",
+    "pk": 128,
+    "fields": {
+      "show_title": "The Price Is Right",
+      "api_id": "2051",
+      "is_detailed": false,
+      "first_air_date": "1972-09-04",
+      "vote_average": "6.20",
+      "vote_count": 47,
+      "overview": "\"Come on down!\" The Price Is Right features a wide variety of games and contests with the same basic challenge: Guess the prices of everyday (or not-quite-everyday) retail items. ",
+      "poster_path": "/6m4uYFAJwkanZXd0n0HUQ0lYHLl.jpg",
+      "in_production": null,
+      "number_of_episodes": null,
+      "number_of_seasons": null,
+      "genres": []
+    }
+  },
+  {
+    "model": "api.tvshow",
+    "pk": 129,
+    "fields": {
+      "show_title": "Peaky Blinders",
+      "api_id": "60574",
+      "is_detailed": false,
+      "first_air_date": "2013-09-12",
+      "vote_average": "8.60",
+      "vote_count": 5344,
+      "overview": "A gangster family epic set in 1919 Birmingham, England and centered on a gang who sew razor blades in the peaks of their caps, and their fierce boss Tommy Shelby, who means to move up in the world.",
+      "poster_path": "/pE8CScObQURsFZ723PSW1K9EGYp.jpg",
+      "in_production": null,
+      "number_of_episodes": null,
+      "number_of_seasons": null,
+      "genres": []
+    }
+  },
+  {
+    "model": "api.tvshow",
+    "pk": 130,
+    "fields": {
+      "show_title": "Lucifer",
+      "api_id": "63174",
+      "is_detailed": false,
+      "first_air_date": "2016-01-25",
+      "vote_average": "8.50",
+      "vote_count": 11516,
+      "overview": "Bored and unhappy as the Lord of Hell, Lucifer Morningstar abandoned his throne and retired to Los Angeles, where he has teamed up with LAPD detective Chloe Decker to take down criminals. But the longer he's away from the underworld, the greater the threat that the worst of humanity could escape.",
+      "poster_path": "/ekZobS8isE6mA53RAiGDG93hBxL.jpg",
+      "in_production": null,
+      "number_of_episodes": null,
+      "number_of_seasons": null,
+      "genres": []
+    }
+  },
+  {
+    "model": "api.tvshow",
+    "pk": 131,
+    "fields": {
+      "show_title": "Dark Desire",
+      "api_id": "105214",
+      "is_detailed": false,
+      "first_air_date": "2020-07-15",
+      "vote_average": "7.30",
+      "vote_count": 3884,
+      "overview": "Married Alma spends a fateful weekend away from home that ignites passion, ends in tragedy and leads her to question the truth about those close to her.",
+      "poster_path": "/uxFNAo2A6ZRcgNASLk02hJUbybn.jpg",
+      "in_production": null,
+      "number_of_episodes": null,
+      "number_of_seasons": null,
+      "genres": []
+    }
+  },
+  {
+    "model": "api.tvshow",
+    "pk": 132,
+    "fields": {
+      "show_title": "Wheel of Fortune",
+      "api_id": "2778",
+      "is_detailed": false,
+      "first_air_date": "1983-09-19",
+      "vote_average": "6.80",
+      "vote_count": 43,
+      "overview": "This game show sees contestants solve word puzzles, similar to those used in Hangman, to win cash and prizes determined by spinning a giant carnival wheel.",
+      "poster_path": "/2fvAIyVfFHQdhJ7OsJWuMlF7836.jpg",
+      "in_production": null,
+      "number_of_episodes": null,
+      "number_of_seasons": null,
+      "genres": []
+    }
+  },
+  {
+    "model": "api.tvshow",
+    "pk": 133,
+    "fields": {
+      "show_title": "Secret Story: The House of Secrets",
+      "api_id": "132712",
+      "is_detailed": false,
+      "first_air_date": "2021-09-09",
+      "vote_average": "3.00",
+      "vote_count": 2,
+      "overview": "",
+      "poster_path": "/rucYOgpymV2gAvyJUVK1awLTOcH.jpg",
+      "in_production": null,
+      "number_of_episodes": null,
+      "number_of_seasons": null,
+      "genres": []
+    }
+  },
+  {
+    "model": "api.tvshow",
+    "pk": 134,
+    "fields": {
+      "show_title": "Grey's Anatomy",
+      "api_id": "1416",
+      "is_detailed": false,
+      "first_air_date": "2005-03-27",
+      "vote_average": "8.30",
+      "vote_count": 7647,
+      "overview": "Follows the personal and professional lives of a group of doctors at Seattle’s Grey Sloan Memorial Hospital.",
+      "poster_path": "/zPIug5giU8oug6Xes5K1sTfQJxY.jpg",
+      "in_production": null,
+      "number_of_episodes": null,
+      "number_of_seasons": null,
+      "genres": []
+    }
+  },
+  {
+    "model": "api.tvshow",
+    "pk": 135,
+    "fields": {
+      "show_title": "Love Twist",
+      "api_id": "135753",
+      "is_detailed": false,
+      "first_air_date": "2021-12-13",
+      "vote_average": "4.50",
+      "vote_count": 2,
+      "overview": "A drama depicting a sweet twist in love between the parents and children of three families around the love of two main characters.",
+      "poster_path": "/5bTF522eYn6g6r7aYqFpTZzmQq6.jpg",
+      "in_production": null,
+      "number_of_episodes": null,
+      "number_of_seasons": null,
+      "genres": []
+    }
+  },
+  {
+    "model": "api.tvshow",
+    "pk": 136,
+    "fields": {
+      "show_title": "The Flash",
+      "api_id": "60735",
+      "is_detailed": false,
+      "first_air_date": "2014-10-07",
+      "vote_average": "7.80",
+      "vote_count": 9293,
+      "overview": "After a particle accelerator causes a freak storm, CSI Investigator Barry Allen is struck by lightning and falls into a coma. Months later he awakens with the power of super speed, granting him the ability to move through Central City like an unseen guardian angel. Though initially excited by his newfound powers, Barry is shocked to discover he is not the only \"meta-human\" who was created in the wake of the accelerator explosion -- and not everyone is using their new powers for good. Barry partners with S.T.A.R. Labs and dedicates his life to protect the innocent. For now, only a few close friends and associates know that Barry is literally the fastest man alive, but it won't be long before the world learns what Barry Allen has become...The Flash.",
+      "poster_path": "/lJA2RCMfsWoskqlQhXPSLFQGXEJ.jpg",
+      "in_production": null,
+      "number_of_episodes": null,
+      "number_of_seasons": null,
+      "genres": []
+    }
+  },
+  {
+    "model": "api.tvshow",
+    "pk": 137,
+    "fields": {
+      "show_title": "Suits",
+      "api_id": "37680",
+      "is_detailed": false,
+      "first_air_date": "2011-06-23",
+      "vote_average": "8.10",
+      "vote_count": 3114,
+      "overview": "While running from a drug deal gone bad, Mike Ross, a brilliant young college-dropout, slips into a job interview with one of New York City's best legal closers, Harvey Specter. Tired of cookie-cutter law school grads, Harvey takes a gamble by hiring Mike on the spot after he recognizes his raw talent and photographic memory.",
+      "poster_path": "/vQiryp6LioFxQThywxbC6TuoDjy.jpg",
+      "in_production": null,
+      "number_of_episodes": null,
+      "number_of_seasons": null,
+      "genres": []
+    }
+  },
+  {
+    "model": "api.tvshow",
+    "pk": 138,
+    "fields": {
+      "show_title": "Midnight Mass",
+      "api_id": "97400",
+      "is_detailed": false,
+      "first_air_date": "2021-09-24",
+      "vote_average": "7.60",
+      "vote_count": 290,
+      "overview": "An unsettling omen washes ashore in the wake of the storm. Later, when the locals gather for a potluck, tragedy strikes – and a miracle occurs.",
+      "poster_path": "/iYoMZYVD775MtBYJfv6OGY1FsnL.jpg",
+      "in_production": null,
+      "number_of_episodes": null,
+      "number_of_seasons": null,
+      "genres": []
+    }
+  },
+  {
+    "model": "api.tvshow",
+    "pk": 139,
+    "fields": {
+      "show_title": "The Good Doctor",
+      "api_id": "71712",
+      "is_detailed": false,
+      "first_air_date": "2017-09-25",
+      "vote_average": "8.60",
+      "vote_count": 10132,
+      "overview": "Shaun Murphy, a young surgeon with autism and savant syndrome, relocates from a quiet country life to join a prestigious hospital's surgical unit. Unable to personally connect with those around him, Shaun uses his extraordinary medical gifts to save lives and challenge the skepticism of his colleagues.",
+      "poster_path": "/cXUqtadGsIcZDWUTrfnbDjAy8eN.jpg",
+      "in_production": null,
+      "number_of_episodes": null,
+      "number_of_seasons": null,
+      "genres": []
+    }
+  },
+  {
+    "model": "api.tvshow",
+    "pk": 140,
+    "fields": {
+      "show_title": "Hollyoaks",
+      "api_id": "966",
+      "is_detailed": false,
+      "first_air_date": "1995-10-23",
+      "vote_average": "5.10",
+      "vote_count": 37,
+      "overview": "The daily soap that follows the loves, lives and misdemeanours of a group of people living in the Chester village of Hollyoaks where anything could, and frequently does, happen...",
+      "poster_path": "/bpmLMZP3M1vLujPqHnOTnKVjRJY.jpg",
+      "in_production": null,
+      "number_of_episodes": null,
+      "number_of_seasons": null,
+      "genres": []
+    }
+  },
+  {
+    "model": "api.tvshow",
+    "pk": 141,
+    "fields": {
+      "show_title": "The Simpsons",
+      "api_id": "456",
+      "is_detailed": false,
+      "first_air_date": "1989-12-17",
+      "vote_average": "7.90",
+      "vote_count": 7596,
+      "overview": "Set in Springfield, the average American town, the show focuses on the antics and everyday adventures of the Simpson family; Homer, Marge, Bart, Lisa and Maggie, as well as a virtual cast of thousands. Since the beginning, the series has been a pop culture icon, attracting hundreds of celebrities to guest star. The show has also made name for itself in its fearless satirical take on politics, media and American life in general.",
+      "poster_path": "/tubgEpjTUA7t0kejVMBsNBZDarZ.jpg",
+      "in_production": null,
+      "number_of_episodes": null,
+      "number_of_seasons": null,
+      "genres": []
+    }
+  },
+  {
+    "model": "api.usertvshow",
+    "pk": 6,
+    "fields": {
+      "userprofile": 3,
+      "show": 122,
+      "rating": null
+    }
+  },
+  {
+    "model": "api.usertvshow",
+    "pk": 7,
+    "fields": {
+      "userprofile": 3,
+      "show": 141,
+      "rating": null
+    }
+  },
+  {
+    "model": "api.viewhistory",
+    "pk": 4,
+    "fields": {
+      "user_tvshow": 6,
+      "start_date": "2022-02-19",
+      "end_date": "2022-02-20"
+    }
+  },
+  {
+    "model": "bingeauth.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$yFyLpw53T5g0B2IS3jg08Z$5OVd50NimrgNxZ/QjdSnplstlyAZWFOj4CNeXSYEUYY=",
+      "last_login": "2022-01-04T18:55:02.063Z",
+      "is_superuser": true,
+      "email": "admin@admin.com",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2022-01-04T18:52:15.262Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "bingeauth.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$BLdzID2dzzGgNxdpRilVI8$pDgB5Qs6xuh4gO68Q1oz5VUIs++x8ioPoRvzwRkQkjc=",
+      "last_login": "2022-01-12T16:09:31.293Z",
+      "is_superuser": true,
+      "email": "issam.n.a@gmail.com",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2022-01-12T15:55:28.696Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "bingeauth.user",
+    "pk": 3,
+    "fields": {
+      "password": "TestUser12345!",
+      "last_login": null,
+      "is_superuser": false,
+      "email": "testuser@test.com",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-02-19T20:53:00.220Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "bingeauth.userprofile",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "username": "admin"
+    }
+  },
+  {
+    "model": "bingeauth.userprofile",
+    "pk": 2,
+    "fields": {
+      "user": 2,
+      "username": "issam.n.a"
+    }
+  },
+  {
+    "model": "bingeauth.userprofile",
+    "pk": 3,
+    "fields": {
+      "user": 3,
+      "username": "testuser"
+    }
+  }
+]

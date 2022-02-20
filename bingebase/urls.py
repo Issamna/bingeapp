@@ -15,11 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
+from rest_framework.routers import DefaultRouter
+from api import views
 from .stub_view import StubView
+
+#API url
+router = DefaultRouter()
+router.register(r'tvshows', views.TvShowViewSet, 'tvshows')
+router.register(r'utvshows', views.UserTvShowViewSet, 'utvshows')
+router.register(r'viewhistory', views.ViewHistoryViewSet, 'viewhistory')
 
 urlpatterns = [
     path("auth/", include("dj_rest_auth.urls")),
     path('admin/', admin.site.urls),
+    path('api/', include(router.urls)),
     path("stub/", StubView.as_view(), name="stub"),
 ]
