@@ -145,6 +145,9 @@ class TestUserTvShowSerializer(TestCase):
         )
         self.show3.refresh_from_db()
         self.assertTrue(self.show3.is_detailed)
+        self.assertEqual(self.show3.in_production, RESPONSE_DATA.get("in_production"))
+        self.assertEqual(self.show3.number_of_episodes, RESPONSE_DATA.get("number_of_episodes"))
+        self.assertEqual(self.show3.number_of_seasons, RESPONSE_DATA.get("number_of_seasons"))
 
     @patch("requests.get")
     def test_create_updates_show_details_fails(self, mock_get):
@@ -169,6 +172,9 @@ class TestUserTvShowSerializer(TestCase):
         )
         self.show3.refresh_from_db()
         self.assertFalse(self.show3.is_detailed)
+        self.assertEqual(self.show3.in_production, None)
+        self.assertEqual(self.show3.number_of_episodes, None)
+        self.assertEqual(self.show3.number_of_seasons, None)
 
     def test_create_bad_data(self):
         payload = {"userprofile": self.owner.userprofile.pk, "show": 20}

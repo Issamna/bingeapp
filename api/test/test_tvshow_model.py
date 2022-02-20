@@ -49,6 +49,9 @@ class TestTvShowModel(TestCase):
         tvshow.get_show_detail()
 
         self.assertTrue(tvshow.is_detailed)
+        self.assertEqual(tvshow.in_production, RESPONSE_DATA.get("in_production"))
+        self.assertEqual(tvshow.number_of_episodes, RESPONSE_DATA.get("number_of_episodes"))
+        self.assertEqual(tvshow.number_of_seasons, RESPONSE_DATA.get("number_of_seasons"))
 
 
 class TestUserTvShowModel(TestCase):

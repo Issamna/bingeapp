@@ -12,7 +12,6 @@ class Genre(models.Model):
     """
 
     api_id = models.CharField(max_length=255, null=False)
-
     name = models.CharField(max_length=255, null=False)
 
     class Meta:
@@ -26,31 +25,20 @@ class TvShow(models.Model):
 
     # created
     show_title = models.CharField(max_length=255, null=False)
-
     api_id = models.CharField(default=None, max_length=255, null=False)
-
     is_detailed = models.BooleanField(default=False)
-
     first_air_date = models.DateField(
         null=True,
         blank=True,
     )
-
     genres = models.ManyToManyField(Genre)
-
     vote_average = models.DecimalField(max_digits=5, decimal_places=2, null=True)
-
     vote_count = models.IntegerField(null=True)
-
     overview = models.TextField(null=True)
-
     poster_path = models.CharField(max_length=255, null=True)
-
     # filled after get_show_detail
     in_production = models.BooleanField(null=True)
-
     number_of_episodes = models.IntegerField(null=True)
-
     number_of_seasons = models.IntegerField(null=True)
 
     def get_show_detail(self):
@@ -63,7 +51,7 @@ class TvShow(models.Model):
             self.in_production = response_data.get("in_production")
             self.number_of_episodes = response_data.get("number_of_episodes")
             self.number_of_seasons = response_data.get("number_of_seasons")
-
+            #make is detailed true so it will not call again
             self.is_detailed = True
             self.save()
 
@@ -125,9 +113,7 @@ class ViewHistory(models.Model):
         on_delete=models.CASCADE,
         null=False,
     )
-
     start_date = models.DateField(null=False)
-
     end_date = models.DateField(
         null=True,
         blank=True,
