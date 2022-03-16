@@ -367,11 +367,11 @@ class Command(BaseCommand):
 
             # get testuser or create
             try:
-                test_user = User.objects.get(email="testuser@test.com")
+                test_user = User.objects.get(email="issam.n.a@gmail.com")
             except User.DoesNotExist:
                 test_user = User.objects.create(
-                    email="testuser@test.com",
-                    password="TestUser12345!",
+                    email="issam.n.a@gmail.com",
+                    password="Test123!",
                 )
 
             show1 = TvShow.objects.first()

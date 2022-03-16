@@ -117,6 +117,16 @@ class TestUserTvShowSerializer(TestCase):
         response = client.get(reverse("utvshows-detail", args=[10]))
         self.assertEqual(response.status_code, 404)
 
+    def test_create_no_up(self):
+        payload = {"show": self.show3.pk}
+        response = client.post(reverse("utvshows-list"), payload)
+        self.assertEqual(response.status_code, 201)
+        self.assertTrue(
+            UserTvShow.objects.filter(
+                userprofile=self.owner.userprofile, show=self.show3
+            ).exists()
+        )
+
     def test_create(self):
         payload = {"userprofile": self.owner.userprofile.pk, "show": self.show3.pk}
         response = client.post(reverse("utvshows-list"), payload)

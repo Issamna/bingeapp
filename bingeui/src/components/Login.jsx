@@ -1,39 +1,48 @@
-import React, { useState } from "react";
-import client from "../utils/api-client";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuthDispatch, useAuthState, loginUser } from "../userContext";
 
-const Login = ({ onLogin }) => {
+const Login = () => {
+  const authState = useAuthState();
+  const dispatch = useAuthDispatch();
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorText, setErrorText] = useState(null);
+
+  useEffect(() => {
+    /* If our authState shows we're authenticated, navigate to stub instead of login form */
+    if (authState.isAuthenticated) {
+      navigateToDashBoard();
+    }
+  }, []);
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setErrorText(null);
     try {
-      const response = await client("/auth/login/", {
-        method: "POST",
-        data: {
-          email: email,
-          password: password,
-        },
+      const wasLoginSuccessful = await loginUser(dispatch, {
+        email: email,
+        password: password,
       });
-      if (!response) return;
+      if (!wasLoginSuccessful) return;
 
-      if (response.key && response.key.length > 0) {
-        /* SET ACCESS TOKEN IN LOCAL STORAGE */
-        localStorage.setItem("access_token", response.key);
-        onLogin(true);
-      }
+      navigateToDashBoard();
     } catch (error) {
       console.error(error);
       setErrorText("Error logging in!");
     }
   };
 
+  const navigateToDashBoard = () => navigate("dashboard");
+
   return (
-    <div className="card">
+    <>
+      <div className="card-header">
+        <h1 className="display-1">Login</h1>
+      </div>
       <div className="card-body">
-        <h2>
+        <h2 className="display-6">
           Log in with <code>/auth/login/</code> endpoint
         </h2>
         <p>
@@ -71,6 +80,7 @@ const Login = ({ onLogin }) => {
           />
           <input
             name="password"
+            type="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
             placeholder="password"
@@ -79,7 +89,7 @@ const Login = ({ onLogin }) => {
           <input type="submit" value="login" className="btn btn-primary" />
         </form>
       </div>
-    </div>
+    </>
   );
 };
 
