@@ -33,6 +33,31 @@ export default function UserTvShow(props) {
     await loadShowsData();
   }, []);
 
+  const handleAddShow = async () => {
+    try {
+      const response = await client("/api/utvshows/", {
+        method: "POST",
+        data: {
+          show: showSelected.id,
+        },
+      });
+
+      if (response.key && response.key.length > 0) {
+        console.log("fail");
+        console.log(response);
+        setErrorText(response);
+      } else {
+        setShowSelected(null);
+        props.onAddShow(response);
+      }
+    } catch (error) {
+      console.log(error);
+      setErrorText(
+        "Unable to fetch data from API. Make sure you're logged in!"
+      );
+    }
+  };
+
   function isShowWatched(show) {
     return showsWatched.includes(show.id);
   }
@@ -64,6 +89,7 @@ export default function UserTvShow(props) {
               <button
                 className="btn btn-sm btn-outline-dark"
                 disabled={isShowWatched(showSelected)}
+                onClick={() => handleAddShow()}
               >
                 {!isShowWatched(showSelected) ? "Add" : "Already in list"}
               </button>

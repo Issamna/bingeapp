@@ -1,3 +1,4 @@
+import json
 from datetime import date, timedelta
 from unittest.mock import patch, Mock, MagicMock
 from rest_framework.test import APIClient
@@ -119,7 +120,7 @@ class TestUserTvShowSerializer(TestCase):
 
     def test_create_no_up(self):
         payload = {"show": self.show3.pk}
-        response = client.post(reverse("utvshows-list"), payload)
+        response = client.post(reverse("utvshows-list"), json.dumps(payload), content_type='application/json')
         self.assertEqual(response.status_code, 201)
         self.assertTrue(
             UserTvShow.objects.filter(

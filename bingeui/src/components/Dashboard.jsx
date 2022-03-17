@@ -6,7 +6,7 @@ import AddShowModal from "./AddShowModal";
 const Dashboard = () => {
   const [userTvShowData, setUserTvShowData] = useState([]);
   const [errorText, setErrorText] = useState(null);
-  const [viewShowModal, setViewTvShowModal] = useState(false)
+  const [viewShowModal, setViewTvShowModal] = useState(false);
   useEffect(async () => {
     const loadUserTvShowData = async () => {
       try {
@@ -31,7 +31,11 @@ const Dashboard = () => {
   const userTvShows = userTvShowData.map((userTvShow) => (
     <UserTvShow key={userTvShow.id} userTvShowDetail={userTvShow} />
   ));
-  
+
+  const handleAddShow = (newShow) => {
+    setUserTvShowData([newShow, ...userTvShowData]);
+    setViewTvShowModal(false);
+  };
 
   return (
     <div id="dashboardDisplay">
@@ -48,10 +52,18 @@ const Dashboard = () => {
       <div>
         <div>
           <h2>Binge Next</h2>
-          <button className="btn btn-sm btn-outline-dark" onClick={() => setViewTvShowModal(true)}>
+          <button
+            className="btn btn-sm btn-outline-dark"
+            onClick={() => setViewTvShowModal(true)}
+          >
             Add New Show
           </button>
-          <AddShowModal onClose={() => setViewTvShowModal(false)} view={viewShowModal} userTvShows={userTvShowData}/>
+          <AddShowModal
+            onClose={() => setViewTvShowModal(false)}
+            onAddShow={(newShow) => handleAddShow(newShow)}
+            view={viewShowModal}
+            userTvShows={userTvShowData}
+          />
         </div>
         <div>{userTvShows}</div>
       </div>

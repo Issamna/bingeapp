@@ -35,11 +35,7 @@ class UserTvShowViewSet(viewsets.ModelViewSet):
     def create(self, request):
         # update show details
         if not request.data.get('userprofile'):
-            request.data._mutable = True
             request.data.update({'userprofile': UserProfile.objects.get(user=request.user).pk})
-            #request.data.update({'userprofile': 1})
-
-            print(request.data)
         tvshow_id = request.data.get("show")
         try:
             tvshow = TvShow.objects.get(pk=tvshow_id)
