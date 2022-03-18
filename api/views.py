@@ -66,7 +66,14 @@ class UserTvShowViewSet(viewsets.ModelViewSet):
         serializer = ViewHistorySerializer(view_histories, many=True)
 
         return Response(serializer.data)
-
+    
+    @action(detail=False, methods=["GET"], name="getusershows")
+    def get_user_shows(self, request, pk=None):
+        user = self.request.user
+        tv_shows_ids = UserTvShow.objects.filter(userprofile=user.userprofile).values_list("show__pk", flat=True).distinct()
+        tv_shows = TvShow.objects.filter(pk__in=tv_shows_ids)
+        serializer = TvShowSerializer(tv_shows, many=True)
+        return Response(serializer.data)
 
 class ViewHistoryViewSet(viewsets.ModelViewSet):
     """

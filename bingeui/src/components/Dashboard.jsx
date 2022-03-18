@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import client from "../utils/api-client";
 import UserTvShow from "./UserTvShow";
+import UserTvShows from "./UserTvShows";
 import AddShowModal from "./AddShowModal";
 
 const Dashboard = () => {
@@ -27,7 +28,6 @@ const Dashboard = () => {
 
     await loadUserTvShowData();
   }, []);
-
   const userTvShows = userTvShowData.map((userTvShow) => (
     <UserTvShow key={userTvShow.id} userTvShowDetail={userTvShow} />
   ));
@@ -65,7 +65,7 @@ const Dashboard = () => {
             userTvShows={userTvShowData}
           />
         </div>
-        <div>{userTvShows}</div>
+        <UserTvShows userTvShows={userTvShowData}/>
       </div>
     </div>
   );

@@ -19,7 +19,7 @@ class TestTvShowSerializer(TestCase):
     def setUp(self):
         # Test data
         self.show = TvShow.objects.create(show_title="TestShow", api_id="1")
-        TvShow.objects.create(show_title="TestShow2", api_id="2")
+        self.show2 = TvShow.objects.create(show_title="TestShow2", api_id="2")
         self.owner = User.objects.create(
             email="test@test.com",
         )
@@ -105,6 +105,12 @@ class TestUserTvShowSerializer(TestCase):
         response_data = response.json()
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response_data), 1)
+
+    def test_get_shows(self):
+        response = client.get(reverse("utvshows-get-user-shows"))
+        response_data = response.json()
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response_data), 2)
 
     def test_properties(self):
         response = client.get(reverse("utvshows-detail", args=[self.user_tvshow1.pk]))

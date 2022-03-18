@@ -1,0 +1,44 @@
+import React, { useState, useEffect } from "react";
+import client from "../utils/api-client";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+
+export default function UserTvShow(props) {
+  const [rows, setRows] = useState(props.userTvShows);
+  const [searched, setSearched] = useState("");
+
+  const [showData, setShowData] = useState([]);
+  const [errorText, setErrorText] = useState(null);
+  console.log(props.userTvShows);
+
+  return (
+    <div className="user-tv-show-details">
+      <h2>Your watched shows</h2>
+      <Paper>
+        <TableContainer>
+          <Table aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell>Show</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows.map((row) => (
+                <TableRow key={row.name}>
+                  <TableCell component="th" scope="row">
+                    {row.show}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Paper>
+    </div>
+  );
+}
