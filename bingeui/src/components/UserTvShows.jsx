@@ -9,12 +9,12 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
 export default function UserTvShow(props) {
-  const [rows, setRows] = useState(props.userTvShows);
   const [searched, setSearched] = useState("");
-
   const [showData, setShowData] = useState([]);
   const [errorText, setErrorText] = useState(null);
-  console.log(props.userTvShows);
+  //console.log('load UserTvShow')
+  
+
 
   return (
     <div className="user-tv-show-details">
@@ -28,10 +28,18 @@ export default function UserTvShow(props) {
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map((row) => (
-                <TableRow key={row.name}>
+              {props.userTvShows.map((row) => (
+                <TableRow key={row.id}>
                   <TableCell component="th" scope="row">
-                    {row.show}
+                    {row.show_details.show_title}
+                  </TableCell>
+                  <TableCell component="th" scope="row">
+                  <button
+                    className="btn btn-sm btn-outline-dark"
+                    onClick={() => props.onDeleteShow(row)}
+                  >
+                    -
+                  </button>
                   </TableCell>
                 </TableRow>
               ))}
@@ -42,3 +50,5 @@ export default function UserTvShow(props) {
     </div>
   );
 }
+// showdata id table --> usertvshow id showdata id lookin in usertvshow and grab that to delete it
+

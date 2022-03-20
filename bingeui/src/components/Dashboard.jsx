@@ -28,13 +28,37 @@ const Dashboard = () => {
 
     await loadUserTvShowData();
   }, []);
-  const userTvShows = userTvShowData.map((userTvShow) => (
-    <UserTvShow key={userTvShow.id} userTvShowDetail={userTvShow} />
-  ));
 
+  
   const handleAddShow = (newShow) => {
     setUserTvShowData([newShow, ...userTvShowData]);
     setViewTvShowModal(false);
+  };
+
+  const handleDeleteShow = async (deleteShow) => {
+    console.log(deleteShow.id)
+    try {
+
+      const response = await client(
+        "/api/utvshows/" + deleteShow.id + "/", 
+        {
+          method: "DELETE",
+        }
+      );
+      console.log(response)
+      if (response.key && response.key.length > 0) {
+        console.log("fail");
+        console.log(response);
+        setErrorText(response);
+      } else {
+        setUserTvShowData(prevUserTvShow => prevUserTvShow.filter(userTvShow => userTvShow.id !== deleteShow.id));
+      }
+    } catch (error) {
+      console.log(error);
+      setErrorText(
+        "Unable to fetch data from API. Make sure you're logged in!"
+      );
+    }
   };
 
   return (
@@ -65,7 +89,7 @@ const Dashboard = () => {
             userTvShows={userTvShowData}
           />
         </div>
-        <UserTvShows userTvShows={userTvShowData}/>
+        <UserTvShows userTvShows={userTvShowData} onDeleteShow={(deleteShow) => handleDeleteShow(deleteShow)}/>
       </div>
     </div>
   );
