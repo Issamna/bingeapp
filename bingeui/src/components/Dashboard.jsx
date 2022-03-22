@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import client from "../utils/api-client";
-import UserTvShow from "./UserTvShow";
+import ViewHistoryModal from "./ViewHistoryModal";
 import UserTvShows from "./UserTvShows";
 import AddShowModal from "./AddShowModal";
 
@@ -8,6 +8,9 @@ const Dashboard = () => {
   const [userTvShowData, setUserTvShowData] = useState([]);
   const [errorText, setErrorText] = useState(null);
   const [viewShowModal, setViewTvShowModal] = useState(false);
+  const [viewHistoryModal, setViewHistoryModal] = useState(false);
+  const [viewHistorySelected, setViewHistorySelected] = useState(null);
+
   useEffect(async () => {
     const loadUserTvShowData = async () => {
       try {
@@ -35,8 +38,12 @@ const Dashboard = () => {
     setViewTvShowModal(false);
   };
 
+  const handleSetViewHistoryModal = (userTvShow) => {
+    setViewHistorySelected(userTvShow)
+    setViewHistoryModal(true);
+  };
+
   const handleDeleteShow = async (deleteShow) => {
-    console.log(deleteShow.id)
     try {
 
       const response = await client(
@@ -88,8 +95,17 @@ const Dashboard = () => {
             view={viewShowModal}
             userTvShows={userTvShowData}
           />
+          <ViewHistoryModal
+            onClose={() => setViewHistoryModal(false)}
+            view={viewHistoryModal}
+            userTvShow={viewHistorySelected}
+          />
         </div>
-        <UserTvShows userTvShows={userTvShowData} onDeleteShow={(deleteShow) => handleDeleteShow(deleteShow)}/>
+        <UserTvShows 
+          userTvShows={userTvShowData} 
+          onDeleteShow={(deleteShow) => handleDeleteShow(deleteShow)}
+          onShowViewHistory={(userTvShow) => handleSetViewHistoryModal(userTvShow)}
+        />
       </div>
     </div>
   );

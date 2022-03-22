@@ -41,6 +41,14 @@ export default function UserTvShow(props) {
                     -
                   </button>
                   </TableCell>
+                  <TableCell component="th" scope="row">
+                  <button
+                    className="btn btn-sm btn-outline-dark"
+                    onClick={() => props.onShowViewHistory(row)}
+                  >
+                    History
+                  </button>
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
