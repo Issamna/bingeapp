@@ -5,7 +5,7 @@ import PublicLayout from "./Layout/PublicLayout";
 import PrivateLayout from "./Layout/PrivateLayout";
 import Login from "./Login";
 import Stub from "./Stub";
-import Dashboard from "./Dashboard"
+import Dashboard from "./Dashboard";
 
 const PrivateRoute = ({ children }) => {
   const authState = useAuthState();

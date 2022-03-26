@@ -13,8 +13,6 @@ export default function UserTvShow(props) {
   const [showData, setShowData] = useState([]);
   const [errorText, setErrorText] = useState(null);
   //console.log('load UserTvShow')
-  
-
 
   return (
     <div className="user-tv-show-details">
@@ -34,20 +32,20 @@ export default function UserTvShow(props) {
                     {row.show_details.show_title}
                   </TableCell>
                   <TableCell component="th" scope="row">
-                  <button
-                    className="btn btn-sm btn-outline-dark"
-                    onClick={() => props.onDeleteShow(row)}
-                  >
-                    -
-                  </button>
+                    <button
+                      className="btn btn-sm btn-outline-dark"
+                      onClick={() => props.onDeleteShow(row)}
+                    >
+                      -
+                    </button>
                   </TableCell>
                   <TableCell component="th" scope="row">
-                  <button
-                    className="btn btn-sm btn-outline-dark"
-                    onClick={() => props.onShowViewHistory(row)}
-                  >
-                    History
-                  </button>
+                    <button
+                      className="btn btn-sm btn-outline-dark"
+                      onClick={() => props.onShowViewHistory(row)}
+                    >
+                      History
+                    </button>
                   </TableCell>
                 </TableRow>
               ))}
@@ -59,4 +57,3 @@ export default function UserTvShow(props) {
   );
 }
 // showdata id table --> usertvshow id showdata id lookin in usertvshow and grab that to delete it
-

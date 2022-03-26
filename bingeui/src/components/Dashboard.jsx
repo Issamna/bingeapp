@@ -32,33 +32,27 @@ const Dashboard = () => {
     await loadUserTvShowData();
   }, []);
 
-  
   const handleAddShow = (newShow) => {
     setUserTvShowData([newShow, ...userTvShowData]);
     setViewTvShowModal(false);
   };
 
   const handleSetViewHistoryModal = (userTvShow) => {
-    setViewHistorySelected(userTvShow)
+    setViewHistorySelected(userTvShow);
     setViewHistoryModal(true);
   };
 
   const handleDeleteShow = async (deleteShow) => {
     try {
-
-      const response = await client(
-        "/api/utvshows/" + deleteShow.id + "/", 
-        {
-          method: "DELETE",
-        }
-      );
-      console.log(response)
+      const response = await client("/api/utvshows/" + deleteShow.id + "/", {
+        method: "DELETE",
+      });
       if (response.key && response.key.length > 0) {
-        console.log("fail");
-        console.log(response);
         setErrorText(response);
       } else {
-        setUserTvShowData(prevUserTvShow => prevUserTvShow.filter(userTvShow => userTvShow.id !== deleteShow.id));
+        setUserTvShowData((prevUserTvShow) =>
+          prevUserTvShow.filter((userTvShow) => userTvShow.id !== deleteShow.id)
+        );
       }
     } catch (error) {
       console.log(error);
@@ -101,10 +95,12 @@ const Dashboard = () => {
             userTvShow={viewHistorySelected}
           />
         </div>
-        <UserTvShows 
-          userTvShows={userTvShowData} 
+        <UserTvShows
+          userTvShows={userTvShowData}
           onDeleteShow={(deleteShow) => handleDeleteShow(deleteShow)}
-          onShowViewHistory={(userTvShow) => handleSetViewHistoryModal(userTvShow)}
+          onShowViewHistory={(userTvShow) =>
+            handleSetViewHistoryModal(userTvShow)
+          }
         />
       </div>
     </div>

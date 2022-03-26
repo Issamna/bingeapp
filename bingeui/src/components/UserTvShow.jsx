@@ -4,7 +4,7 @@ import client from "../utils/api-client";
 export default function UserTvShow(props) {
   const [showData, setShowData] = useState([]);
   const [errorText, setErrorText] = useState(null);
-  console.log()
+  console.log();
   useEffect(async () => {
     const loadShowData = async () => {
       try {

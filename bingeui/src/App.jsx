@@ -8,6 +8,6 @@ const App = () => (
       <Router />
     </div>
   </AuthProvider>
-)
+);
 
 export default App;
