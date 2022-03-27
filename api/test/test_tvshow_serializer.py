@@ -1,4 +1,5 @@
 import json
+import urllib
 from datetime import date, timedelta
 from unittest.mock import patch, Mock, MagicMock
 from rest_framework.test import APIClient
@@ -54,6 +55,12 @@ class TestTvShowSerializer(TestCase):
         self.assertEqual(response_create.status_code, 405)
         self.assertEqual(response_update.status_code, 405)
         self.assertEqual(response_delete.status_code, 405)
+
+    def test_search(self):
+        response = client.get(reverse("tvshows-search-tv-show") + "?search=test")
+        response_data = response.json()
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response_data), 2)
 
 
 class TestUserTvShowSerializer(TestCase):
@@ -126,7 +133,11 @@ class TestUserTvShowSerializer(TestCase):
 
     def test_create_no_up(self):
         payload = {"show": self.show3.pk}
-        response = client.post(reverse("utvshows-list"), json.dumps(payload), content_type='application/json')
+        response = client.post(
+            reverse("utvshows-list"),
+            json.dumps(payload),
+            content_type="application/json",
+        )
         self.assertEqual(response.status_code, 201)
         self.assertTrue(
             UserTvShow.objects.filter(
@@ -163,8 +174,12 @@ class TestUserTvShowSerializer(TestCase):
         self.show3.refresh_from_db()
         self.assertTrue(self.show3.is_detailed)
         self.assertEqual(self.show3.in_production, RESPONSE_DATA.get("in_production"))
-        self.assertEqual(self.show3.number_of_episodes, RESPONSE_DATA.get("number_of_episodes"))
-        self.assertEqual(self.show3.number_of_seasons, RESPONSE_DATA.get("number_of_seasons"))
+        self.assertEqual(
+            self.show3.number_of_episodes, RESPONSE_DATA.get("number_of_episodes")
+        )
+        self.assertEqual(
+            self.show3.number_of_seasons, RESPONSE_DATA.get("number_of_seasons")
+        )
 
     @patch("requests.get")
     def test_create_updates_show_details_fails(self, mock_get):
@@ -299,7 +314,7 @@ class TestViewHistorySerializer(TestCase):
     def test_update(self):
         end_date = date.today() + timedelta(days=4)
         payload = {
-            "user_tvshow": self.viewhistory2.pk,
+            "user_tvshow": self.viewhistory2.user_tvshow.id,
             "start_date": self.viewhistory2.start_date,
             "end_date": end_date,
         }

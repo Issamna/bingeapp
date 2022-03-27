@@ -23,6 +23,13 @@ class TvShowViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = TvShow.objects.all()
     serializer_class = TvShowSerializer
 
+    @action(detail=False, methods=["GET"], name="searchtvshow")
+    def search_tv_show(self, request, pk=None):
+        search_term = request.query_params.get("search")
+        tv_shows = TvShow.objects.filter(show_title__icontains=search_term)
+        serializer = TvShowSerializer(tv_shows, many=True)
+        return Response(serializer.data)
+
 
 class UserTvShowViewSet(viewsets.ModelViewSet):
     """
@@ -34,8 +41,10 @@ class UserTvShowViewSet(viewsets.ModelViewSet):
 
     def create(self, request):
         # update show details
-        if not request.data.get('userprofile'):
-            request.data.update({'userprofile': UserProfile.objects.get(user=request.user).pk})
+        if not request.data.get("userprofile"):
+            request.data.update(
+                {"userprofile": UserProfile.objects.get(user=request.user).pk}
+            )
         tvshow_id = request.data.get("show")
         try:
             tvshow = TvShow.objects.get(pk=tvshow_id)
@@ -43,10 +52,10 @@ class UserTvShowViewSet(viewsets.ModelViewSet):
         except TvShow.DoesNotExist:
             # TODO: Log error
             print("error TvShow.DoesNotExist")
-        except:
-            raise APIException(
-                "A server error occurred. Failed to retrieve show details"
-            )
+        except APIException:
+            print("A server error occurred. Failed to retrieve show details")
+        except Exception as e:
+            print(e)
 
         return super().create(request)
 
@@ -66,14 +75,19 @@ class UserTvShowViewSet(viewsets.ModelViewSet):
         serializer = ViewHistorySerializer(view_histories, many=True)
 
         return Response(serializer.data)
-    
+
     @action(detail=False, methods=["GET"], name="getusershows")
     def get_user_shows(self, request, pk=None):
         user = self.request.user
-        tv_shows_ids = UserTvShow.objects.filter(userprofile=user.userprofile).values_list("show__pk", flat=True).distinct()
+        tv_shows_ids = (
+            UserTvShow.objects.filter(userprofile=user.userprofile)
+            .values_list("show__pk", flat=True)
+            .distinct()
+        )
         tv_shows = TvShow.objects.filter(pk__in=tv_shows_ids)
         serializer = TvShowSerializer(tv_shows, many=True)
         return Response(serializer.data)
+
 
 class ViewHistoryViewSet(viewsets.ModelViewSet):
     """

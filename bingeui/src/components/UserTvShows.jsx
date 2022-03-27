@@ -12,7 +12,6 @@ export default function UserTvShow(props) {
   const [searched, setSearched] = useState("");
   const [showData, setShowData] = useState([]);
   const [errorText, setErrorText] = useState(null);
-  //console.log('load UserTvShow')
 
   return (
     <div className="user-tv-show-details">

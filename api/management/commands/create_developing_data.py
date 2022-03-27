@@ -1,3 +1,5 @@
+import gzip
+import json
 import requests
 from datetime import date, timedelta
 
@@ -327,6 +329,11 @@ class Command(BaseCommand):
             action="store_true",
             help="uses api call to get 10 most popular shows",
         )
+        parser.add_argument(
+            "--use_gz",
+            action="store_true",
+            help="uses gz file to upload",
+        )
 
     def handle(self, *args, **options):
         # Only possible in dev mode
@@ -347,23 +354,35 @@ class Command(BaseCommand):
                 response = requests.get(url)
                 response_data = response.json()
 
+            elif options["use_gz"]:
+                with gzip.open("db_gz/tv_series_ids.json.gz", "r") as rows:
+                    for row in rows:
+                        data = json.loads(row)
+                        tvshow = TvShow.objects.create(
+                            show_title=data.get("original_name"),
+                            api_id=data.get("id"),
+                            is_detailed=False,
+                        )
+
             else:
                 # use TEST_DATA dict
                 response_data = TEST_DATA
 
             # create show data
-            for show_data in response_data.get("results"):
-                # create show
-                tvshow = TvShow.objects.create(
-                    show_title=show_data.get("name"),
-                    api_id=show_data.get("id"),
-                    is_detailed=False,
-                    first_air_date=show_data.get("first_air_date"),
-                    vote_average=show_data.get("vote_average"),
-                    vote_count=show_data.get("vote_count"),
-                    overview=show_data.get("overview"),
-                    poster_path=show_data.get("poster_path"),
-                )
+
+            if not options["use_api"]:
+                for show_data in response_data.get("results"):
+                    # create show
+                    tvshow = TvShow.objects.create(
+                        show_title=show_data.get("name"),
+                        api_id=show_data.get("id"),
+                        is_detailed=False,
+                        first_air_date=show_data.get("first_air_date"),
+                        vote_average=show_data.get("vote_average"),
+                        vote_count=show_data.get("vote_count"),
+                        overview=show_data.get("overview"),
+                        poster_path=show_data.get("poster_path"),
+                    )
 
             # get testuser or create
             try:

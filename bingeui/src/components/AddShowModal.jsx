@@ -1,37 +1,63 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import client from "../utils/api-client";
 import DropdownList from "react-widgets/DropdownList";
+import debounce from "lodash.debounce";
 import "react-widgets/styles.css";
 
 export default function UserTvShow(props) {
   const [showsData, setShowsData] = useState([]);
+  const [searchShow, setSearchShow] = useState(null);
   const [errorText, setErrorText] = useState(null);
   const [showSelected, setShowSelected] = useState(null);
   const showsWatched = props.userTvShows.map((userTvShow) => {
     return userTvShow.show;
   });
-  useEffect(async () => {
-    const loadShowsData = async () => {
-      if (!props.view) {
-        try {
-          const response = await client("/api/tvshows/", {
-            method: "GET",
-          });
-          if (!response) return;
-          setShowsData(response);
-          setErrorText(null);
-        } catch (error) {
-          console.error(error);
-          setShowsData(null);
-          setErrorText(
-            "Unable to fetch data from API. Make sure you're logged in!"
-          );
-        }
-      }
-    };
+  // useEffect(async () => {
+  //   const loadShowsData = async () => {
+  //     if (!props.view) {
+  //       try {
+  //         const response = await client("/api/tvshows/search_tv_show/?search=" + searchShow, {
+  //           method: "GET",
+  //         });
+  //         if (!response) return;
+  //         setShowsData(response);
+  //         setErrorText(null);
+  //       } catch (error) {
+  //         console.error(error);
+  //         setShowsData(null);
+  //         setErrorText(
+  //           "Unable to fetch data from API. Make sure you're logged in!"
+  //         );
+  //       }
+  //     }
+  //   };
 
-    await loadShowsData();
-  }, []);
+  //   await loadShowsData();
+  // }, []);
+
+  const findShowData = async (value) => {
+    if (value.length > 4) {
+      try {
+        const response = await client(
+          "/api/tvshows/search_tv_show/?search=" + value,
+          {
+            method: "GET",
+          }
+        );
+        if (!response) return;
+        setShowsData(response);
+        setErrorText(null);
+      } catch (error) {
+        console.error(error);
+        setShowsData(null);
+        setErrorText(
+          "Unable to fetch data from API. Make sure you're logged in!"
+        );
+      }
+    }
+  };
+
+  const debouncedChangeHandler = useCallback(debounce(findShowData, 500), []);
 
   const handleAddShow = async () => {
     try {
@@ -76,6 +102,7 @@ export default function UserTvShow(props) {
           <DropdownList
             dataKey="id"
             defaultValue=""
+            onSearch={(value) => findShowData(value)}
             onSelect={(value) => setShowSelected(value)}
             textField="show_title"
             filter="contains"

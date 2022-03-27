@@ -27,7 +27,6 @@ export default function ViewHistoryModal(props) {
               method: "GET",
             }
           );
-          console.log(response);
           if (!response) return;
           setViewHistories(response);
           setErrorText(null);
@@ -46,7 +45,7 @@ export default function ViewHistoryModal(props) {
 
   const handleAddViewHistory = async () => {
     if (endDateSelected !== null && startDateSelected > endDateSelected) {
-      console.log("end date less than start");
+      alert("End date can not be less than start date");
     } else {
       try {
         const response = await client("/api/viewhistory/", {
@@ -74,6 +73,31 @@ export default function ViewHistoryModal(props) {
           "Unable to fetch data from API. Make sure you're logged in!"
         );
       }
+    }
+  };
+
+  const handleDeleteViewHistory = async (deleteViewHistory) => {
+    try {
+      const response = await client(
+        "/api/viewhistory/" + deleteViewHistory.id + "/",
+        {
+          method: "DELETE",
+        }
+      );
+      if (response.key && response.key.length > 0) {
+        setErrorText(response);
+      } else {
+        setViewHistories((prevViewHistory) =>
+          prevViewHistory.filter(
+            (viewHistory) => viewHistory.id !== deleteViewHistory.id
+          )
+        );
+      }
+    } catch (error) {
+      console.log(error);
+      setErrorText(
+        "Unable to fetch data from API. Make sure you're logged in!"
+      );
     }
   };
 
@@ -106,14 +130,12 @@ export default function ViewHistoryModal(props) {
                     <DatePicker
                       onChange={(value) => setStartDateSelected(value)}
                       valueFormat={{ dateStyle: "medium" }}
-                      //    onSelect={(value) => setStartDateSelected(value)}
                     />
                   </TableCell>
                   <TableCell component="th" scope="row">
                     <DatePicker
                       valueFormat={{ dateStyle: "medium" }}
                       onChange={(value) => setEndDateSelected(value)}
-                      // onSelect={(value) => setEndDateSelected(value)}
                     />
                   </TableCell>
                   <TableCell component="th" scope="row">
@@ -127,7 +149,13 @@ export default function ViewHistoryModal(props) {
                 </TableRow>
                 {viewHistories &&
                   viewHistories.map((row) => (
-                    <ViewHistoryRow key={row.id} viewHistory={row} />
+                    <ViewHistoryRow
+                      key={row.id}
+                      viewHistory={row}
+                      onDeleteViewHistory={(viewHistory) =>
+                        handleDeleteViewHistory(viewHistory)
+                      }
+                    />
                   ))}
               </TableBody>
             </Table>
