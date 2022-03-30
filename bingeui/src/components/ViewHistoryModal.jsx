@@ -134,7 +134,7 @@ export default function ViewHistoryModal(props) {
           <div className="dashboard-div">
             <div className="dashboard-table">
               <Paper>
-                <TableContainer>
+                <TableContainer sx={{ maxHeight: 500 }}>
                   <Table aria-label="simple table">
                     <TableHead>
                       <TableRow>

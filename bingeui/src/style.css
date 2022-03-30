@@ -166,7 +166,6 @@ select {
 }
 .modal-view-history {
   width: 90%;
-  min-height: 60%;
   background-color: #87809e;
   border-color: black;
   border-radius: 5px;
