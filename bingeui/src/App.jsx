@@ -1,24 +1,14 @@
-import React, { useState } from "react";
-import Login from "./components/Login";
-import Stub from "./components/Stub";
+import React from "react";
+import Router from "./components/Router";
+import AuthProvider from "./userContext/context";
+import "./style.css";
 
-const App = () => {
-  /*
-  This is really bad authenticated state management, but just for demo purposes!
-
-  The Stub component will re-attempt to fetch data from the backend whenever
-  isLoggedIn changes (ie on successful login)
-
-  use context api
-  */
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  return (
-    <div className="container">
-      <Login onLogin={setIsLoggedIn} />
-      <Stub isLoggedIn={isLoggedIn} />
+const App = () => (
+  <AuthProvider>
+    <div>
+      <Router />
     </div>
-  );
-};
+  </AuthProvider>
+);
 
 export default App;

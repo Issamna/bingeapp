@@ -48,10 +48,15 @@ class TvShow(models.Model):
             )
             response = requests.get(url)
             response_data = response.json()
+            self.first_air_date = response_data.get("first_air_date")
+            self.vote_average = response_data.get("vote_average")
+            self.vote_count = response_data.get("vote_count")
+            self.overview = response_data.get("overview")
+            self.poster_path = response_data.get("poster_path")
             self.in_production = response_data.get("in_production")
             self.number_of_episodes = response_data.get("number_of_episodes")
             self.number_of_seasons = response_data.get("number_of_seasons")
-            #make is detailed true so it will not call again
+            # make is detailed true so it will not call again
             self.is_detailed = True
             self.save()
 

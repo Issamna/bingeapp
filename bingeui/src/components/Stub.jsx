@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import client from "../utils/api-client";
 
-const Stub = ({ isLoggedIn }) => {
+const Stub = () => {
   const [stubData, setStubData] = useState(null);
   const [errorText, setErrorText] = useState(null);
 
@@ -24,12 +24,15 @@ const Stub = ({ isLoggedIn }) => {
     };
 
     await loadStubData();
-  }, [isLoggedIn]);
+  }, []);
 
   return (
-    <div className="card" data-testid="stubDataDisplay">
+    <div data-testid="stubDataDisplay">
+      <div className="card-header">
+        <h1 className="display-1">Stub</h1>
+      </div>
       <div className="card-body">
-        <h2>
+        <h2 className="display-6">
           Data from <code>/stub/</code> endpoint
         </h2>
         <p>
@@ -48,6 +51,7 @@ const Stub = ({ isLoggedIn }) => {
           </div>
         )}
         <pre>{stubData && JSON.stringify(stubData, null, 2)}</pre>
+        {console.log(stubData)}
       </div>
     </div>
   );
