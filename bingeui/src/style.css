@@ -1,5 +1,262 @@
-@import "react-widgets/styles.css";
+body {
+  background-color: #292454;
+  margin: 0;
+  padding: 0;
+  font-family: Arial;
+}
+nav {
+  background-color: #2f2f2f;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+nav div {
+  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+nav h1 {
+  font-size: 30px;
+  margin: 20px 50px;
+  width: 20%;
+  margin-right: auto;
+}
+nav button {
+  cursor: pointer;
+  font-weight: 700;
+  border: none;
+  outline: none;
+  background-color: #a09ab5;
+  margin-left: auto;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10rem;
+}
+nav button:hover {
+  background-color: #87809e;
+}
 
-.card {
-  margin: 30px 0px;
+nav button:active {
+  background-color: #87809e;
+  box-shadow: 0 1px black;
+  transform: translateY(1px);
+}
+.dashboard {
+  background-color: #87809e;
+  border-radius: 5px;
+  margin: 20px 20px;
+  padding: 20px;
+}
+.dashboard-title {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 90%;
+}
+.dashboard-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dashboard-table {
+  width: 90%;
+}
+.btn-add {
+  cursor: pointer;
+  margin: 20px;
+  outline: none;
+  border: none;
+  color: white;
+  background-color: #464178;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.btn-add:hover {
+  background-color: #3e3873;
+}
+
+.btn-add:active {
+  background-color: #3e3873;
+  box-shadow: 0 1px black;
+  transform: translateY(1px);
+}
+
+.login-box input[type="text"],
+select {
+  padding: 10px 20px;
+  margin: 10px 0px;
+  display: list-item;
+  border: None;
+  border-radius: 8px;
+  box-sizing: border-box;
+  width: 100%;
+}
+.login-box input[type="password"],
+select {
+  padding: 10px 20px;
+  margin: 10px 0px;
+  display: list-item;
+  border: None;
+  border-radius: 8px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.login-box input[type="submit"] {
+  width: 100%;
+  background-color: #464178;
+  color: black;
+  padding: 10px 20px;
+  margin: 10px 0px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  outline: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10rem;
+}
+
+.login-box input[type="submit"]:hover {
+  background-color: #3e3873;
+}
+
+.login-box input[type="submit"]:active {
+  background-color: #3e3873;
+  box-shadow: 0 1px black;
+  transform: translateY(1px);
+}
+.login-box {
+  background-color: #87809e;
+  border-radius: 5px;
+  margin: 0 auto;
+  padding: 20px;
+  width: 40%;
+}
+.login-box div {
+  display: flex;
+  justify-content: center;
+}
+.login-box label {
+  font-weight: 700;
+}
+.login-title {
+  color: white;
+  font-size: 80px;
+  text-align: center;
+}
+
+.dashboard-modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  width: 500px;
+  background-color: #87809e;
+  border-color: black;
+  border-radius: 5px;
+}
+.modal-view-history {
+  width: 90%;
+  min-height: 60%;
+  background-color: #87809e;
+  border-color: black;
+  border-radius: 5px;
+}
+
+.modal-header,
+.modal-footer {
+  padding: 10px;
+}
+
+.modal-title {
+  margin: 0;
+}
+.modal-body {
+  padding: 10px;
+}
+.modal-body-view-history {
+  padding: 10px;
+  height: 100%;
+}
+
+.modal-show-data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.view-history-datepicker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+}
+.view-history-datepicker-object {
+  margin: 10px;
+}
+
+.btn-disabled {
+  color: black;
+  cursor: not-allowed;
+  font-weight: 700;
+  border: none;
+  outline: none;
+  background-color: #464178;
+  padding: 10px 20px;
+  margin: 20px;
+  border-radius: 10rem;
+}
+.modal-footer {
+  justify-content: flex-end;
+  display: flex;
+}
+
+.btn-can {
+  text-align: center;
+  cursor: pointer;
+  font-weight: 700;
+  border: none;
+  outline: none;
+  background-color: #464178;
+  padding: 10px 20px;
+  margin: 20px;
+  border-radius: 10rem;
+}
+
+.btn-can:hover {
+  background-color: #3e3873;
+}
+
+.btn-can:active {
+  background-color: #3e3873;
+  box-shadow: 0 1px black;
+  transform: translateY(1px);
+}
+
+.btn-table {
+  cursor: pointer;
+  font-weight: 600;
+  border: none;
+  outline: none;
+  background-color: #a09ab5;
+  padding: 5px 10px;
+  border-radius: 10rem;
+  margin: 0px 2px;
+}
+.btn-table:hover {
+  background-color: #87809e;
+}
+
+.btn-table:active {
+  background-color: #87809e;
+  box-shadow: 0 1px black;
+  transform: translateY(1px);
 }

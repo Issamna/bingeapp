@@ -1,10 +1,11 @@
 import React from "react";
 import Router from "./components/Router";
 import AuthProvider from "./userContext/context";
+import "./style.css";
 
 const App = () => (
   <AuthProvider>
-    <div className="container">
+    <div>
       <Router />
     </div>
   </AuthProvider>

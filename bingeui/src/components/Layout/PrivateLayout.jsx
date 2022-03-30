@@ -12,13 +12,15 @@ export const PrivateLayout = ({ children, ...rest }) => {
   };
 
   return (
-    <div className="card">
+    <div>
+      <nav>
+        <div>
+          <h1>Binge On</h1>
+          <button onClick={handleLogout}>Logout</button>
+        </div>
+      </nav>
+
       {children}
-      <div className="card-footer text-muted">
-        <button className="btn btn-sm btn-outline-dark" onClick={handleLogout}>
-          Logout
-        </button>
-      </div>
     </div>
   );
 };

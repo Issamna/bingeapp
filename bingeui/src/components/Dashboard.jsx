@@ -63,45 +63,48 @@ const Dashboard = () => {
   };
 
   return (
-    <div id="dashboardDisplay">
-      <div className="card-header">
-        <h1 className="display-1">Dashboard</h1>
-      </div>
-      <div className="card-body">
-        {errorText && (
-          <div className="alert alert-danger" role="alert">
-            {errorText}
-          </div>
-        )}
-      </div>
-      <div>
-        <div>
-          <h2>Binge Next</h2>
-          <button
-            className="btn btn-sm btn-outline-dark"
-            onClick={() => setViewTvShowModal(true)}
-          >
-            Add New Show
-          </button>
-          <AddShowModal
-            onClose={() => setViewTvShowModal(false)}
-            onAddShow={(newShow) => handleAddShow(newShow)}
-            view={viewShowModal}
-            userTvShows={userTvShowData}
-          />
-          <ViewHistoryModal
-            onClose={() => setViewHistoryModal(false)}
-            view={viewHistoryModal}
-            userTvShow={viewHistorySelected}
-          />
+    <div>
+      <AddShowModal
+        onClose={() => setViewTvShowModal(false)}
+        onAddShow={(newShow) => handleAddShow(newShow)}
+        view={viewShowModal}
+        userTvShows={userTvShowData}
+      />
+      <ViewHistoryModal
+        onClose={() => setViewHistoryModal(false)}
+        view={viewHistoryModal}
+        userTvShow={viewHistorySelected}
+      />
+      <div className="dashboard">
+        <div className="">
+          {errorText && (
+            <div className="alert alert-danger" role="alert">
+              {errorText}
+            </div>
+          )}
         </div>
-        <UserTvShows
-          userTvShows={userTvShowData}
-          onDeleteShow={(deleteShow) => handleDeleteShow(deleteShow)}
-          onShowViewHistory={(userTvShow) =>
-            handleSetViewHistoryModal(userTvShow)
-          }
-        />
+        <div className="dashboard-div">
+          <div className="dashboard-title">
+            <h1>Your List</h1>
+            <button
+              className="btn-add"
+              onClick={() => setViewTvShowModal(true)}
+            >
+              +
+            </button>
+          </div>
+        </div>
+        <div className="dashboard-div">
+          <div className="dashboard-table">
+            <UserTvShows
+              userTvShows={userTvShowData}
+              onDeleteShow={(deleteShow) => handleDeleteShow(deleteShow)}
+              onShowViewHistory={(userTvShow) =>
+                handleSetViewHistoryModal(userTvShow)
+              }
+            />
+          </div>
+        </div>
       </div>
     </div>
   );

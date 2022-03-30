@@ -108,28 +108,22 @@ export default function ViewHistoryRow(props) {
         {editSelected ? (
           <div>
             <button
-              className="btn btn-sm btn-outline-dark"
+              className="btn-table"
               onClick={() => handleUpdateViewHistory()}
             >
               Save
             </button>
-            <button
-              className="btn btn-sm btn-outline-dark"
-              onClick={() => handleCancel()}
-            >
+            <button className="btn-table" onClick={() => handleCancel()}>
               Cancel
             </button>
           </div>
         ) : (
           <div>
-            <button
-              className="btn btn-sm btn-outline-dark"
-              onClick={() => setEditSelected(true)}
-            >
+            <button className="btn-table" onClick={() => setEditSelected(true)}>
               Edit
             </button>
             <button
-              className="btn btn-sm btn-outline-dark"
+              className="btn-table"
               onClick={() => props.onDeleteViewHistory(viewHistory)}
             >
               Delete

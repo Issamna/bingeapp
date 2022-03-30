@@ -12,28 +12,6 @@ export default function UserTvShow(props) {
   const showsWatched = props.userTvShows.map((userTvShow) => {
     return userTvShow.show;
   });
-  // useEffect(async () => {
-  //   const loadShowsData = async () => {
-  //     if (!props.view) {
-  //       try {
-  //         const response = await client("/api/tvshows/search_tv_show/?search=" + searchShow, {
-  //           method: "GET",
-  //         });
-  //         if (!response) return;
-  //         setShowsData(response);
-  //         setErrorText(null);
-  //       } catch (error) {
-  //         console.error(error);
-  //         setShowsData(null);
-  //         setErrorText(
-  //           "Unable to fetch data from API. Make sure you're logged in!"
-  //         );
-  //       }
-  //     }
-  //   };
-
-  //   await loadShowsData();
-  // }, []);
 
   const findShowData = async (value) => {
     if (value.length > 4) {
@@ -93,8 +71,8 @@ export default function UserTvShow(props) {
   }
 
   return (
-    <div className="mmodal">
-      <div className="modal-content">
+    <div className="dashboard-modal">
+      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <h3 className="modal-title">Add a show</h3>
         </div>
@@ -111,25 +89,24 @@ export default function UserTvShow(props) {
         </div>
         <div>
           {showSelected && (
-            <div>
+            <div className="modal-show-data">
               <h4>{showSelected.show_title}</h4>
               <button
-                className="btn btn-sm btn-outline-dark"
+                className={
+                  !isShowWatched(showSelected) ? "btn-add" : "btn-disabled"
+                }
                 disabled={isShowWatched(showSelected)}
                 onClick={() => handleAddShow()}
               >
-                {!isShowWatched(showSelected) ? "Add" : "Already in list"}
+                {!isShowWatched(showSelected) ? "+" : "Already in list"}
               </button>
             </div>
           )}
         </div>
 
         <div className="modal-footer">
-          <button
-            className="btn btn-sm btn-outline-dark"
-            onClick={props.onClose}
-          >
-            Close
+          <button className="btn-can" onClick={props.onClose}>
+            Cancel
           </button>
         </div>
       </div>

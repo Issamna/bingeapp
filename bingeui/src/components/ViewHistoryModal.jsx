@@ -7,9 +7,9 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import "react-widgets/styles.css";
 import DatePicker from "react-widgets/DatePicker";
 import ViewHistoryRow from "./ViewHistoryRow";
+import "react-widgets/styles.css";
 
 export default function ViewHistoryModal(props) {
   const [viewHistories, setViewHistories] = useState(null);
@@ -106,66 +106,64 @@ export default function ViewHistoryModal(props) {
   }
 
   return (
-    <div className="mmodal">
-      <div className="modal-content">
+    <div className="dashboard-modal">
+      <div className="modal-view-history">
         <div className="modal-header">
           <h3 className="modal-title">
             {props.userTvShow.show_details.show_title} View History
           </h3>
         </div>
-        <div className="modal-body">
-          <TableContainer>
-            <Table aria-label="simple table">
-              <TableHead>
-                <TableRow>
-                  <TableCell>Watch Length</TableCell>
-                  <TableCell>Start Date</TableCell>
-                  <TableCell>End Date</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                <TableRow>
-                  <TableCell component="th" scope="row"></TableCell>
-                  <TableCell component="th" scope="row">
-                    <DatePicker
-                      onChange={(value) => setStartDateSelected(value)}
-                      valueFormat={{ dateStyle: "medium" }}
-                    />
-                  </TableCell>
-                  <TableCell component="th" scope="row">
-                    <DatePicker
-                      valueFormat={{ dateStyle: "medium" }}
-                      onChange={(value) => setEndDateSelected(value)}
-                    />
-                  </TableCell>
-                  <TableCell component="th" scope="row">
-                    <button
-                      className="btn btn-sm btn-outline-dark"
-                      onClick={() => handleAddViewHistory()}
-                    >
-                      Add
-                    </button>
-                  </TableCell>
-                </TableRow>
-                {viewHistories &&
-                  viewHistories.map((row) => (
-                    <ViewHistoryRow
-                      key={row.id}
-                      viewHistory={row}
-                      onDeleteViewHistory={(viewHistory) =>
-                        handleDeleteViewHistory(viewHistory)
-                      }
-                    />
-                  ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
+        <div className="modal-body-view-history">
+          <div className="view-history-datepicker">
+            <div className="view-history-datepicker-object">
+              <DatePicker
+                onChange={(value) => setStartDateSelected(value)}
+                valueFormat={{ dateStyle: "medium" }}
+              />
+            </div>
+            <div className="view-history-datepicker-object">
+              <DatePicker
+                valueFormat={{ dateStyle: "medium" }}
+                onChange={(value) => setEndDateSelected(value)}
+              />
+            </div>
+            <button className="btn-add" onClick={() => handleAddViewHistory()}>
+              +
+            </button>
+          </div>
+          <div className="dashboard-div">
+            <div className="dashboard-table">
+              <Paper>
+                <TableContainer>
+                  <Table aria-label="simple table">
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>Watch Length</TableCell>
+                        <TableCell>Start Date</TableCell>
+                        <TableCell>End Date</TableCell>
+                        <TableCell>Actions</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {viewHistories &&
+                        viewHistories.map((row) => (
+                          <ViewHistoryRow
+                            key={row.id}
+                            viewHistory={row}
+                            onDeleteViewHistory={(viewHistory) =>
+                              handleDeleteViewHistory(viewHistory)
+                            }
+                          />
+                        ))}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              </Paper>
+            </div>
+          </div>
         </div>
         <div className="modal-footer">
-          <button
-            className="btn btn-sm btn-outline-dark"
-            onClick={props.onClose}
-          >
+          <button className="btn-can" onClick={props.onClose}>
             Close
           </button>
         </div>

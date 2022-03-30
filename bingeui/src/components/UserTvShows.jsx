@@ -9,19 +9,18 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
 export default function UserTvShow(props) {
-  const [searched, setSearched] = useState("");
-  const [showData, setShowData] = useState([]);
-  const [errorText, setErrorText] = useState(null);
-
   return (
     <div className="user-tv-show-details">
-      <h2>Your watched shows</h2>
       <Paper>
         <TableContainer>
           <Table aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell>Show</TableCell>
+                <TableCell>Title</TableCell>
+                <TableCell>Last Watched</TableCell>
+                <TableCell>Times Watched</TableCell>
+                <TableCell>Average Watch</TableCell>
+                <TableCell>Actions</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -31,16 +30,23 @@ export default function UserTvShow(props) {
                     {row.show_details.show_title}
                   </TableCell>
                   <TableCell component="th" scope="row">
-                    <button
-                      className="btn btn-sm btn-outline-dark"
-                      onClick={() => props.onDeleteShow(row)}
-                    >
-                      -
-                    </button>
+                    {row.last_watched}
+                  </TableCell>
+                  <TableCell component="th" scope="row">
+                    {row.times_watched}
+                  </TableCell>
+                  <TableCell component="th" scope="row">
+                    {row.average_watch_length}
                   </TableCell>
                   <TableCell component="th" scope="row">
                     <button
-                      className="btn btn-sm btn-outline-dark"
+                      className="btn-table"
+                      onClick={() => props.onDeleteShow(row)}
+                    >
+                      Delete
+                    </button>
+                    <button
+                      className="btn-table"
                       onClick={() => props.onShowViewHistory(row)}
                     >
                       History
@@ -55,4 +61,3 @@ export default function UserTvShow(props) {
     </div>
   );
 }
-// showdata id table --> usertvshow id showdata id lookin in usertvshow and grab that to delete it
