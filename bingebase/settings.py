@@ -158,6 +158,9 @@ CORS_ALLOWED_ORIGINS = [
     "http://penguin.linux.test:3000",
     "http://127.0.0.1:3000",
     "http://issamna.github.io/bingeapp",
+    "http://issamna.github.io/",
+    "issamna.github.io/bingeapp",
+    "issamna.github.io/",
 ]
 CORS_ALLOW_CREDENTIALS = True
 
