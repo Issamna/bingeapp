@@ -14,7 +14,7 @@ export default function UserTvShow(props) {
   });
 
   const findShowData = async (value) => {
-    if (value.length > 4) {
+    if (value.length > 2) {
       try {
         const response = await client(
           "/api/tvshows/search_tv_show/?search=" + value,
