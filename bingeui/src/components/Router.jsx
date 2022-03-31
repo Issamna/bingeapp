@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
 import { useAuthState } from "../userContext";
 import PublicLayout from "./Layout/PublicLayout";
 import PrivateLayout from "./Layout/PrivateLayout";
@@ -17,7 +17,7 @@ const PrivateRoute = ({ children }) => {
 };
 
 const Router = () => (
-  <BrowserRouter>
+  <HashRouter>
     <Routes>
       <Route
         path="/"
@@ -45,7 +45,7 @@ const Router = () => (
       />
       <Route render={() => <h1>Page not found</h1>} />
     </Routes>
-  </BrowserRouter>
+  </HashRouter>
 );
 
 export default Router;
