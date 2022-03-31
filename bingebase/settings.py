@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-yj0#5h(yl1&euvrnpjr=69b$#w&!_^rhf3vy11(nie@=dy$ua1
 DEBUG = True
 API_KEY = config('TMDB_API_KEY', cast=str)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['binge-on.herokuapp.com', '127.0.0.1:8000']
 
 
 # Application definition
