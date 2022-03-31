@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/bingeapp/static/css/main.85b4dc13.css",
+    "main.js": "/bingeapp/static/js/main.632079a3.js",
+    "static/js/787.807cc40c.chunk.js": "/bingeapp/static/js/787.807cc40c.chunk.js",
+    "index.html": "/bingeapp/index.html",
+    "main.85b4dc13.css.map": "/bingeapp/static/css/main.85b4dc13.css.map",
+    "main.632079a3.js.map": "/bingeapp/static/js/main.632079a3.js.map",
+    "787.807cc40c.chunk.js.map": "/bingeapp/static/js/787.807cc40c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.85b4dc13.css",
+    "static/js/main.632079a3.js"
+  ]
+}
